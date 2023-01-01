@@ -10,10 +10,15 @@ class LoginViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<bool> controlTextValue(params) async {
+  Future<bool> controlTextValue() async {
+    _chaneLoading();
     await Future.delayed(
       Duration(seconds: 1),
     );
     return _inputText != null;
+  }
+
+  void _chaneLoading() {
+    isLoading = !isLoading;
   }
 }

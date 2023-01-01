@@ -62,8 +62,14 @@ class _LoginViewState extends State<LoginView> {
                 ),
               ),
               ElevatedButton(
-                onPressed: () {},
-                child: Center(child: Text(login)),
+                onPressed: context.watch<LoginViewModel>().isLoading
+                    ? null
+                    : () {
+                        context.read<LoginViewModel>().controlTextValue();
+                      },
+                child: Center(
+                  child: Text(login),
+                ),
               ),
               CheckboxListTile(
                 value: context.watch<LoginViewModel>().isCheckBoxOpen,
