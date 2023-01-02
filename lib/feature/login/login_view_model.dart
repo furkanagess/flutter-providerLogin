@@ -20,5 +20,6 @@ class LoginViewModel extends ChangeNotifier {
 
   void _chaneLoading() {
     isLoading = !isLoading;
+    notifyListeners();
   }
 }

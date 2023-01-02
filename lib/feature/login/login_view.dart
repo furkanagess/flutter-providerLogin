@@ -62,19 +62,19 @@ class _LoginViewState extends State<LoginView> {
                 ),
               ),
               ElevatedButton(
-                onPressed: context.watch<LoginViewModel>().isLoading
+                onPressed: _loginViewModel.isLoading
                     ? null
                     : () {
-                        context.read<LoginViewModel>().controlTextValue();
+                        _loginViewModel.controlTextValue();
                       },
                 child: Center(
                   child: Text(login),
                 ),
               ),
               CheckboxListTile(
-                value: context.watch<LoginViewModel>().isCheckBoxOpen,
+                value: _loginViewModel.isCheckBoxOpen,
                 onChanged: (value) {
-                  context.read<LoginViewModel>().checkBoxChange(value ?? false);
+                  _loginViewModel.checkBoxChange(value ?? false);
                 },
                 title: Text(rememberMe),
               )
